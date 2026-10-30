@@ -1,9 +1,13 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors'); // <-- Added this
 const taskRoutes = require('./src/routes/taskRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable CORS so Live Server (port 5500) can talk to this backend (port 3000)
+app.use(cors()); // <-- Added this
 
 app.use(express.json());
 
